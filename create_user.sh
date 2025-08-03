@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 x=1
 
 create_uname () {
