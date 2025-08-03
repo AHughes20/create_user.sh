@@ -2,12 +2,22 @@
 x=1
 
 create_uname () {
-	local fname="$1"
-	local lname="$2"
-	echo $fname | tr '[:upper:]' '[:lower:]'
-	echo $lname | tr '[:upper:]' '[:lower:]'
+	local fname=${1:0:1}
+	local lname=$2
+	lfname=$(echo $fname | tr '[:upper:]' '[:lower:]')
+	llname=$(echo $lname | tr '[:upper:]' '[:lower:]')	
+
+	check_uname=$lfname$llname
+	if getent passwd $check_uname; then
+		echo "already exists"
+	else
+		useradd $check_uname -s /bin/bash
+		echo "User" $lfname$llname "created"
+	fi
 }
-while [ $x -le 5 ]
+
+#########Use this loop if manually entering new users#############
+while [ $x -le 3 ]
 	do
 	echo "New user provisioning script."
 	read -p "Enter employee first name: " fname
@@ -17,7 +27,6 @@ while [ $x -le 5 ]
 	then	
 		create_uname "$fname" "$lname"
 		((x++))
-		echo "user created"
 	
 	else
 		echo "nope"
