@@ -1,6 +1,3 @@
-#sdfgsfg
-ghdfghd
-dfghdfghdg
 !/bin/bash
 x=1
 
