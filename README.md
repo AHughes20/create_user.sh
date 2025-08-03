@@ -1,1 +1,0 @@
-This script is a practice script that takes a first and last name input and converts it to a username. It will first check to make sure it doesnt exist. If not exist and avail, it will create user with appropriate skel dirs and base files. There are 3 different groups for this script (red, green, and blue). A user cannot be part of more than one group.
