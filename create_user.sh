@@ -1,4 +1,7 @@
 !/bin/bash
+dkhfgjhsdfjgh
+djfhgjshdfjgh
+sjldfhgjsdfhjdf
 x=1
 
 create_uname () {
