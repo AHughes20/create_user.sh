@@ -1,5 +1,4 @@
 #!/bin/bash
-x=1
 
 create_uname () {
 	local fname=${1:0:1}
@@ -16,21 +15,25 @@ create_uname () {
 	fi
 }
 
-#########Use this loop if manually entering new users#############
-while [ $x -le 3 ]
+echo "New user provisioning script."
+read -p "Create new User?y/n: " create
+########Use this loop if manually entering new users#############
+
+while [ $create = "Y" ] || [ $create = "y" ]
 	do
-	echo "New user provisioning script."
 	read -p "Enter employee first name: " fname
 	read -p "Enter employee last name: " lname
 	read -p "Is this correct?Y/N " create
-	if [ $create = "Y" ]
+	if [ $create = "Y" ] || [ $create = "y" ]
 	then	
 		create_uname "$fname" "$lname"
 		((x++))
+		read -p "Create another user?y/n: " create
 	
 	else
-		echo "nope"
+		create="n"
 	fi
+	####add code to put all new created users into list to be displayed at end of script.
 done
 
 #########Use  this for loop for known amount of users, ie; a file or another script###############
