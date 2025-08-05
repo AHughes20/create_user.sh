@@ -33,4 +33,4 @@ while [ $x -le 3 ]
 	fi
 done
 
-
+#########Use  this for loop for known amount of users, ie; a file or another script###############
