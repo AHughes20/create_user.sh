@@ -11,10 +11,12 @@ create_uname () {
 		echo "already exists"
 	else
 		useradd $check_uname -s /bin/bash
+		user_array+=($check_uname)
 		echo "User" $lfname$llname "created"
 	fi
 }
 
+user_array=()
 echo "New user provisioning script."
 read -p "Create new User?y/n: " create
 ########Use this loop if manually entering new users#############
@@ -27,12 +29,14 @@ while [ $create = "Y" ] || [ $create = "y" ]
 	if [ $create = "Y" ] || [ $create = "y" ]
 	then	
 		create_uname "$fname" "$lname"
-		((x++))
 		read -p "Create another user?y/n: " create
 	
 	else
 		create="n"
 	fi
+	for user in "${user_array[@]}"; do
+		echo "${user_array[@]}"
+	done
 	####add code to put all new created users into list to be displayed at end of script.
 done
 
